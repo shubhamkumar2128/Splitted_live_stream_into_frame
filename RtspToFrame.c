@@ -13,7 +13,7 @@ GstMessage *msg;
 void break_RtspStream_Into_Frame()
 {
 		
-    pipeline = gst_parse_launch("playbin uri=http://localhost/zm/cgi-bin/nph-zms?monitor=1",NULL); 
+    pipeline = gst_parse_launch("rtspsrc location=rtsp://admin:Sr2128shubh@10.0.2.15:7001/1?pos=2018-06-20T10:37 ! decodebin ! queue ! autovideoconvert ! pngenc ! multifilesink location=frame%d.png",NULL); 
     gst_element_set_state (pipeline, GST_STATE_PLAYING); //for play
     bus = gst_element_get_bus(pipeline); //wait for EOS
     msg = gst_bus_timed_pop_filtered (bus, GST_CLOCK_TIME_NONE,GST_MESSAGE_ERROR | GST_MESSAGE_EOS);
