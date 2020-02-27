@@ -1,5 +1,5 @@
 //gcc -o Rtsp RtspToFrame.c `pkg-config --cflags --libs gstreamer-1.0` ->run C file
-
+//first install gstreamer on your machine
 
 
 #include <gst/gst.h>
